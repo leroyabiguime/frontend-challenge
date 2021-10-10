@@ -7,15 +7,15 @@
 
 @font-face {
     font-family: 'Ruhl';
-    src: url('/fonts/FrankRuhlLibre-Regular.ttf');
+    src: url('./fonts/FrankRuhlLibre-Regular.ttf');
 }
 @font-face {
     font-family: 'Ruhl Medium';
-    src: url('/fonts/FrankRuhlLibre-Medium.ttf');
+    src: url('./fonts/FrankRuhlLibre-Medium.ttf');
 }
 @font-face {
     font-family: 'Vibes';
-    src: url('/fonts/GreatVibes-Regular.ttf');
+    src: url('./fonts/GreatVibes-Regular.ttf');
 }
 
 html {
@@ -59,6 +59,8 @@ ul {
 
 body {
     font-family: "Ruhl", sans-serif;
+    animation: opening 1s ease-in-out;
+    transform-origin: bottom;
 }
 
 h1 {
@@ -138,8 +140,42 @@ nav {
     bottom: 0;
     left: -20%;
     z-index: -1;
+    transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
+    animation: plant-entrance 1.5s ease-in-out 0.5s forwards, 
+    plant-shakes 2.5s infinite ease alternate-reverse 2s;
+    transform-origin: bottom;
 }
 
 .plant2 {
     left: 40%;
+}
+
+
+/* Annimation */
+@keyframes opening {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes plant-entrance {
+    from {
+        transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
+    }
+    to {
+        transform: translateY(0%) rotateZ(0deg) rotateX(0deg);
+    }
+}
+
+@keyframes plant-shakes {
+    from {
+        transform: rotateZ(-5deg);
+    }
+    to {
+        transform: rotateZ(0deg);
+
+    }
 }
